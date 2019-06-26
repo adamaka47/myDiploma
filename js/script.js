@@ -20,7 +20,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		 personHair = document.getElementById('person-hair'),
 		 personClothes = document.getElementById('person-clothes'),
 		 inputsRadio = document.querySelectorAll('.radios'),
-		 radio = document.querySelector('.radio');
+		 radio = document.querySelector('.radio'),
+		 person = document.querySelector('.person'),
+		 inputName = document.querySelector('#name'),
+		 inputAge = document.querySelector('#age');
 
 
 		 createButton.addEventListener('click', function() {
@@ -39,6 +42,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		 	customizeStyle.style.display = 'none';
 		 	customizeChar.style.display = 'none';
 		 	main.style.display = 'block';
+		 	mainCards.appendChild(person);
+		 	person.classList.add('main-cards-item');
+
 		 });
 
 
@@ -49,26 +55,16 @@ window.addEventListener('DOMContentLoaded', function() {
 		 sliderClothes();
 
 
+
+
+
+
+
 		 // slider skin
 
 		 function sliderSkin() {
-
 		 	let sliderIndex = 1,
 		 		 sliderItem = document.getElementsByClassName('skin-color');
-
-		 	radio.addEventListener('change', function() {
-		 		if (inputsRadio[0].checked) {
-		 			
-		 			console.log(533);
-
-		 		}
-		 		if (inputsRadio[1].checked) {
-		 			
-		 			console.log(333)
-
-		 		}
-		 	})
-
 
 		 		 showSlider(sliderIndex);
 
@@ -87,18 +83,57 @@ window.addEventListener('DOMContentLoaded', function() {
 		 		 };
 
 		 		 function selectSkin() {
-		 		 	if (sliderIndex === 1) {
-		 		 		console.log(personSkin);
-		 		 		personSkin.style.backgroundImage = 'url(img/skin/skin-1.png)';
+		 		 	if (inputsRadio[0].checked) {
+		 		 		if (sliderIndex === 1) {
+		 		 			personSkin.style.backgroundImage = 'url(img/skin/skin-1.png)';
 
+		 		 		}
+		 		 		if (sliderIndex === 2) {
+		 		 			personSkin.style.backgroundImage = 'url(img/skin/skin-2.png)';
+		 		 		}
+		 		 		if (sliderIndex === 3) {
+		 		 			personSkin.style.backgroundImage = 'url(img/skin/skin-3.png)';
+		 		 		}
 		 		 	}
-		 		 	if (sliderIndex === 2) {
-		 		 		personSkin.style.backgroundImage = 'url(img/skin/skin-2.png)';
+		 		 	if (inputsRadio[1].checked) {
+		 		 		if (sliderIndex === 1) {
+		 		 			personSkin.style.backgroundImage = 'url(img/skin/skin-4.png)';
+
+		 		 		}
+		 		 		if (sliderIndex === 2) {
+		 		 			personSkin.style.backgroundImage = 'url(img/skin/skin-5.png)';
+		 		 		}
+		 		 		if (sliderIndex === 3) {
+		 		 			personSkin.style.backgroundImage = 'url(img/skin/skin-6.png)';
+		 		 		}
 		 		 	}
-		 		 	if (sliderIndex === 3) {
-		 		 		console.log(personSkin);
-		 		 		personSkin.style.backgroundImage = 'url(img/skin/skin-3.png)';
-		 		 	}
+		 		 	radio.addEventListener('change', function() {
+		 		 		if (inputsRadio[0].checked) {
+		 		 			if (sliderIndex === 1) {
+		 		 				personSkin.style.backgroundImage = 'url(img/skin/skin-1.png)';
+
+		 		 			}
+		 		 			if (sliderIndex === 2) {
+		 		 				personSkin.style.backgroundImage = 'url(img/skin/skin-2.png)';
+		 		 			}
+		 		 			if (sliderIndex === 3) {
+		 		 				personSkin.style.backgroundImage = 'url(img/skin/skin-3.png)';
+		 		 			}
+		 		 		}
+		 		 		if (inputsRadio[1].checked) {
+		 		 			if (sliderIndex === 1) {
+		 		 				personSkin.style.backgroundImage = 'url(img/skin/skin-4.png)';
+
+		 		 			}
+		 		 			if (sliderIndex === 2) {
+		 		 				personSkin.style.backgroundImage = 'url(img/skin/skin-5.png)';
+		 		 			}
+		 		 			if (sliderIndex === 3) {
+		 		 				personSkin.style.backgroundImage = 'url(img/skin/skin-6.png)';
+		 		 			}
+		 		 		}
+		 		 	});
+
 		 		 }
 
 		 		 function nextSlider(now) {
@@ -116,6 +151,8 @@ window.addEventListener('DOMContentLoaded', function() {
 		 			selectSkin();
 
 		 		});
+
+		 		selectSkin();
 		 };
 
 
@@ -186,11 +223,11 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 		 		 function showSlider(now) {
-		 		 	if (now > sliderItem.length - 3) {
+		 		 	if (now > sliderItem.length) {
 		 		 		sliderIndex = 1;
 		 		 	}
 		 		 	if (now < 1) {
-		 		 		sliderIndex = sliderItem.length - 3;
+		 		 		sliderIndex = sliderItem.length;
 		 		 	}
 		 		 	for (let i = 0; i < sliderItem.length; i++) {
 		 		 		sliderItem[i].style.display = 'none';
